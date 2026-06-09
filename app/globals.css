@@ -2,25 +2,49 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1f2937;
+  --surface: rgba(255, 255, 255, 0.96);
+  --surface-strong: #ffffff;
+  --muted: #64748b;
+  --line: rgba(27, 20, 100, 0.1);
+  --shadow: 0 22px 60px rgba(27, 20, 100, 0.08);
+  --brand-soft: #eceafd;
+  --brand-soft-strong: #dbd7fb;
+  --brand-text: #1b1464;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-noto-sans-arabic);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #1f2937;
   }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-sans-arabic), sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+select,
+button {
+  font: inherit;
 }
