@@ -13,6 +13,7 @@ export function SiteDetails({ site }: SiteDetailsProps) {
   return (
     <PageShell
       eyebrow={site.location}
+      siteCode={site.siteCode}
       title={site.siteName}
       description="هذه صفحة مستقلة لهذا الموقع فقط. يمكنك مشاركة الرابط مباشرة مع السكان لفتح بيانات اللجان والأعضاء لهذا الموقع."
     >

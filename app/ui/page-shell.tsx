@@ -4,10 +4,11 @@ type PageShellProps = {
   title: string;
   description: string;
   eyebrow?: string;
+  siteCode?: string;
   children: React.ReactNode;
 };
 
-export function PageShell({ title, description, eyebrow, children }: PageShellProps) {
+export function PageShell({ title, description, eyebrow, siteCode, children }: PageShellProps) {
   return (
     <div className="min-h-screen w-full" dir="rtl">
       <header className="w-full bg-[#1b1464] text-white shadow-[0_14px_35px_rgba(27,20,100,0.35)]">
@@ -26,7 +27,7 @@ export function PageShell({ title, description, eyebrow, children }: PageShellPr
             دليل لجان المواقع
           </h1>
           <div className="justify-self-end text-base font-semibold tracking-[0.18em] sm:text-xl">
-            12GNY
+            {siteCode}
           </div>
         </div>
       </header>

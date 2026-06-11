@@ -16,6 +16,7 @@ export type CommitteeMember = {
 
 export type SiteData = {
   slug: string;
+  siteCode: string;
   location: string;
   siteName: string;
   committees: Array<{
@@ -23,6 +24,29 @@ export type SiteData = {
     members: CommitteeMember[];
   }>;
 };
+
+const siteCodes = new Map<string, string>([
+  ["موقع القدس", "KYS1715"],
+  ["موقع النخيل والزيتون", "KYS1711"],
+  ["موقع البواسل", "KYS1926"],
+  ["موقع وجدان", "KYS0100"],
+  ["موقع الفاروق", "KYS1933"],
+  ["موقع يافا", "KYS0835"],
+  ["موقع الفداء", "KYS1713"],
+  ["موقع الجوهري", "KYS0825"],
+  ["موقع الرمال الذهبية", "KYS0947"],
+  ["موقع الشهيد جميل", "KYS0805"],
+  ["موقع اسعاد الطفولة", "GZA4726"],
+  ["موقع وطن", "GZA5311"],
+  ["موقع ايام المسرح", "GZA4441"],
+  ["موقع مدرسة فلسطين", "GZA0391"],
+  ["موقع مدرسة امير المنسي", "GZA0393"],
+  ["موقع معهد الامل للايتام", "GZA3314"],
+  ["موقع التأمين والمعاشات", "GZA4124"],
+  ["موقع الوعد", "GZA5001"],
+  ["موقع الحياة 2", "GZA4962"],
+  ["موقع مدرسة البراق", "GZA4122"],
+]);
 
 const workbookPath = path.join(
   process.cwd(),
@@ -119,6 +143,7 @@ export async function loadSites(): Promise<SiteData[]> {
 
       return {
         slug: existingCount === 0 ? baseSlug : `${baseSlug}-${nextCount}`,
+        siteCode: siteCodes.get(site.siteName) ?? "",
         location: site.location,
         siteName: site.siteName,
         committees: Array.from(site.committees.entries()).map(([name, members]) => ({
