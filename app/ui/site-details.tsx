@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import type { SiteData } from "../lib/committee-data";
 import { PageShell, SummaryCard } from "./page-shell";
 
@@ -18,15 +16,6 @@ export function SiteDetails({ site }: SiteDetailsProps) {
       title={site.siteName}
       description="هذه صفحة مستقلة لهذا الموقع فقط. يمكنك مشاركة الرابط مباشرة مع السكان لفتح بيانات اللجان والأعضاء لهذا الموقع."
     >
-      <div className="flex items-center justify-between gap-3">
-        <Link
-          href="/"
-          className="inline-flex w-fit rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-medium text-[var(--brand-text)] transition hover:border-[#1b1464]"
-        >
-          العودة إلى قائمة المواقع
-        </Link>
-      </div>
-
       <div className="grid gap-3 sm:grid-cols-3">
         <SummaryCard label="المنطقة" value={site.location} />
         <SummaryCard label="عدد اللجان" value={String(site.committees.length)} />
